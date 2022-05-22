@@ -17,7 +17,7 @@ public class KafKaConsumerService {
         logger.info(String.format("Message received -> %s", message));
     }
 
-    @KafkaListener(topics = "${kafka.topic_name}", groupId = "${kafka.group_id}")
+    @KafkaListener(topics = "${kafka.topic_name}", groupId = "${kafka.group_id}", containerFactory = "userListenerContainerFactory")
     public void consume(User user)
     {
         logger.info(String.format("Message received -> %s", user.toString()));
